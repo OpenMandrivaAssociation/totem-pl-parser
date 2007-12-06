@@ -1,12 +1,12 @@
 %define major 10
-%define minimajor 0
+%define minimajor 10
 %define libname %mklibname totem-plparser %major
 %define libnamedev %mklibname -d totem-plparser
 %define minilibname %mklibname totem-plparser-mini %minimajor
 
 Summary: Playlist parser library from the Totem Movie Player
 Name: totem-pl-parser
-Version: 2.21.5
+Version: 2.21.6
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 License: LGPLv2+

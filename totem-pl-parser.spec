@@ -11,6 +11,7 @@ Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 License: LGPLv2+
 Group: System/Libraries
+BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 URL: http://www.hadess.net/totem.php3
 BuildRequires: hal-devel
 BuildRequires: gnome-vfs2-devel

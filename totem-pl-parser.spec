@@ -9,6 +9,7 @@ Name: totem-pl-parser
 Version: 2.23.2
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
+Patch: totem-pl-parser-2.23.2-missing-includes.patch
 License: LGPLv2+
 Group: System/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
@@ -58,6 +59,7 @@ Static libraries, include files for totem playlist parser
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 #gw: bug in configure

@@ -1,12 +1,12 @@
-%define major 10
-%define minimajor 10
+%define major 12
+%define minimajor 12
 %define libname %mklibname totem-plparser %major
 %define libnamedev %mklibname -d totem-plparser
 %define minilibname %mklibname totem-plparser-mini %minimajor
 
 Summary: Playlist parser library from the Totem Movie Player
 Name: totem-pl-parser
-Version: 2.22.2
+Version: 2.23.2
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 License: LGPLv2+
@@ -63,7 +63,7 @@ Static libraries, include files for totem playlist parser
 #gw: bug in configure
 export DBUS_REQS=1.0
 %configure2_5x
-%make
+%make LIBS=-lz
 
 %install
 rm -rf $RPM_BUILD_ROOT %name.lang

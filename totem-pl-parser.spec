@@ -17,6 +17,7 @@ BuildRequires: hal-devel
 BuildRequires: gnome-vfs2-devel
 BuildRequires: gtk2-devel
 BuildRequires: evolution-data-server-devel
+BuildRequires: intltool
 
 %description
 Shared library used by totem.

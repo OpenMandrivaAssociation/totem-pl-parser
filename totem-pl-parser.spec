@@ -6,7 +6,7 @@
 
 Summary: Playlist parser library from the Totem Movie Player
 Name: totem-pl-parser
-Version: 2.27.92
+Version: 2.28.0
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 Patch: totem-pl-parser-2.26.0-fix-linking.patch

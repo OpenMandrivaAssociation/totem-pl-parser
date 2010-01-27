@@ -15,6 +15,7 @@ Group: System/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 URL: http://www.hadess.net/totem.php3
 BuildRequires: gmime-devel
+BuildRequires: libxml2-devel
 BuildRequires: gobject-introspection-devel
 BuildRequires: intltool
 BuildRequires: gtk-doc gnome-common

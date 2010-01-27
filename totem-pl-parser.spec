@@ -1,12 +1,12 @@
-%define major 12
-%define minimajor 12
+%define major 17
+%define minimajor 17
 %define libname %mklibname totem-plparser %major
 %define libnamedev %mklibname -d totem-plparser
 %define minilibname %mklibname totem-plparser-mini %minimajor
 
 Summary: Playlist parser library from the Totem Movie Player
 Name: totem-pl-parser
-Version: 2.28.2
+Version: 2.29.1
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 Patch: totem-pl-parser-2.26.0-fix-linking.patch
@@ -14,10 +14,8 @@ License: LGPLv2+
 Group: System/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 URL: http://www.hadess.net/totem.php3
-BuildRequires: hal-devel
-BuildRequires: gnome-vfs2-devel
-BuildRequires: gtk2-devel
 BuildRequires: gmime-devel
+BuildRequires: gobject-introspection-devel
 BuildRequires: intltool
 BuildRequires: gtk-doc gnome-common
 
@@ -101,6 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc README NEWS 
 %{_libdir}/libtotem-plparser.so.%{major}*
+%_libdir/girepository-1.0/TotemPlParser.typelib
 
 %files -n %{minilibname}
 %defattr(-,root,root)
@@ -111,6 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog AUTHORS
 %doc %_datadir/gtk-doc/html/*
 %{_libdir}/*.so
+%_datadir/gir-1.0/TotemPlParser.gir
 %attr(644,root,root) %{_libdir}/*.la
 %{_libdir}/*.a
 %{_libdir}/pkgconfig/*

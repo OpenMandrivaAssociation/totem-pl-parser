@@ -6,7 +6,7 @@
 
 Summary: Playlist parser library from the Totem Movie Player
 Name: totem-pl-parser
-Version: 2.29.1
+Version: 2.29.92
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 License: LGPLv2+
@@ -93,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc README NEWS 
 %{_libdir}/libtotem-plparser.so.%{major}*
-%_libdir/girepository-1.0/TotemPlParser.typelib
+%_libdir/girepository-1.0/TotemPlParser-1.0.typelib
 
 %files -n %{minilibname}
 %defattr(-,root,root)
@@ -104,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog AUTHORS
 %doc %_datadir/gtk-doc/html/*
 %{_libdir}/*.so
-%_datadir/gir-1.0/TotemPlParser.gir
+%_datadir/gir-1.0/TotemPlParser-1.0.gir
 %attr(644,root,root) %{_libdir}/*.la
 %{_libdir}/*.a
 %{_libdir}/pkgconfig/*

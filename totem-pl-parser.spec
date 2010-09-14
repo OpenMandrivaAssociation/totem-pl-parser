@@ -6,9 +6,10 @@
 
 Summary: Playlist parser library from the Totem Movie Player
 Name: totem-pl-parser
-Version: 2.30.2
-Release: %mkrel 2
+Version: 2.30.3
+Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
+Patch0: totem-pl-parser-update-for-g-i-0.9.5.patch
 License: LGPLv2+
 Group: System/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
@@ -16,7 +17,7 @@ URL: http://www.hadess.net/totem.php3
 BuildRequires: gmime-devel
 BuildRequires: libxml2-devel
 BuildRequires: libsoup-devel
-BuildRequires: gobject-introspection-devel
+BuildRequires: gobject-introspection-devel >= 0.9.5
 BuildRequires: intltool
 BuildRequires: gtk-doc gnome-common
 
@@ -60,6 +61,8 @@ Static libraries, include files for totem playlist parser
 
 %prep
 %setup -q
+%apply_patches
+autoreconf -fi
 
 %build
 %configure2_5x

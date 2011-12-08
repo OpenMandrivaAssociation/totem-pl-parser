@@ -1,24 +1,27 @@
 %define major 17
 %define minimajor 17
-%define libname %mklibname totem-plparser %major
-%define libnamedev %mklibname -d totem-plparser
-%define minilibname %mklibname totem-plparser-mini %minimajor
+%define gir_major 1.0
+%define libname %mklibname totem-plparser %{major}
+%define libmini %mklibname totem-plparser-mini %{minimajor}
+%define girname %mklibname totem-plparser-gir %{gir_major}
+%define develname %mklibname -d totem-plparser
 
 Summary: Playlist parser library from the Totem Movie Player
 Name: totem-pl-parser
 Version: 2.32.6
-Release: %mkrel 1
-Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.xz
+Release: 2
 License: LGPLv2+
 Group: System/Libraries
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 URL: http://www.hadess.net/totem.php3
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+
 BuildRequires: gmime-devel
 BuildRequires: libxml2-devel
 BuildRequires: libsoup-devel
 BuildRequires: gobject-introspection-devel >= 0.9.5
 BuildRequires: intltool
-BuildRequires: gtk-doc gnome-common
+BuildRequires: gtk-doc
+BuildRequires: gnome-common
 
 %description
 Shared library used by totem.
@@ -28,89 +31,76 @@ Summary: Playlist parser library from the Totem Movie Player
 Group: System/Internationalization
 
 %description i18n
-This package contains the translations for %name.
+This package contains the translations for %{name}.
 
-%package -n %libname
+%package -n %{libname}
 Summary: Playlist parser library from the Totem Movie Player
 Group: System/Libraries
-Requires: %name-i18n >= %version
+Suggests: %{name}-i18n >= %{version}-%{release}
 
-%description -n %libname
+%description -n %{libname}
 Shared library used by totem.
 
-%package -n %minilibname
+%package -n %{libmini}
 Summary: Playlist parser library from the Totem Movie Player
 Group: System/Libraries
 
-%description -n %minilibname
+%description -n %{libmini}
 Shared library used by totem - minimal version.
 
-%package -n	%{libnamedev}
-Summary:	Static libraries, include files for totem playlist parser
+%package -n %{girname}
+Summary:    GObject Introspection interface description for %{name}
+Group:      System/Libraries
+Requires:   %{libname} = %{version}-%{release}
+
+%description -n %{girname}
+GObject Introspection interface description for %{name}.
+
+%package -n	%{develname}
+Summary:	Development libraries, include files for totem playlist parser
 Group:		Development/GNOME and GTK+
-Provides:	totem-plparser-devel = %{version}
-Provides:	libtotem-plparser-devel = %{version}
-Requires:	%{libname} = %{version}
-Requires:	%{minilibname} = %{version}
+Provides:	totem-plparser-devel = %{version}-%{release}
+Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libmini} = %{version}-%{release}
 Conflicts: 	%{_lib}totem-plparser0-devel
 Obsoletes:	%mklibname -d totem-plparser 7
 
-%description -n	%{libnamedev}
-Static libraries, include files for totem playlist parser
+%description -n	%{develname}
+Development libraries, include files for totem playlist parser
 
 %prep
 %setup -q
 %apply_patches
 
 %build
-%configure2_5x
+%configure2_5x \
+	--disable-static
+
 %make 
 
 %install
-rm -rf %{buildroot} %name.lang
+rm -rf %{buildroot} %{name}.lang
 %makeinstall_std
-%find_lang %name
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
+%find_lang %{name}
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%post -n %{minilibname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{minilibname} -p /sbin/ldconfig
-%endif
-
-
-%files i18n -f %name.lang
-%defattr(-,root,root)
+%files i18n -f %{name}.lang
+%doc README NEWS 
 
 %files -n %{libname}
-%defattr(-,root,root)
-%doc README NEWS 
 %{_libdir}/libtotem-plparser.so.%{major}*
-%_libdir/girepository-1.0/TotemPlParser-1.0.typelib
 
-%files -n %{minilibname}
-%defattr(-,root,root)
+%files -n %{libmini}
 %{_libdir}/libtotem-plparser-mini.so.%{minimajor}*
 
-%files -n %{libnamedev}
-%defattr(-,root,root)
+%files -n %{girname}
+%{_libdir}/girepository-1.0/TotemPlParser-%{gir_major}.typelib
+
+%files -n %{develname}
 %doc ChangeLog AUTHORS
-%doc %_datadir/gtk-doc/html/*
+%doc %{_datadir}/gtk-doc/html/*
 %{_libdir}/*.so
-%_datadir/gir-1.0/TotemPlParser-1.0.gir
-%attr(644,root,root) %{_libdir}/*.la
-%{_libdir}/*.a
+%{_datadir}/gir-1.0/TotemPlParser-%{gir_major}.gir
 %{_libdir}/pkgconfig/*
-%_includedir/%name
-
-
+%{_includedir}/%{name}
 

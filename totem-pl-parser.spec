@@ -5,14 +5,14 @@
 %define girname %mklibname totem-plparser-gir %{gir_major}
 %define develname %mklibname -d totem-plparser
 
-Summary: Playlist parser library from the Totem Movie Player
-Name: totem-pl-parser
-Version: 3.2.0
-Release: 1
-License: LGPLv2+
-Group: System/Libraries
-URL: http://www.hadess.net/totem.php3
-Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Summary:	Playlist parser library from the Totem Movie Player
+Name:		totem-pl-parser
+Version:	3.4.1
+Release:	1
+License:	LGPLv2+
+Group:		System/Libraries
+URL:		http://www.hadess.net/totem.php3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/3.4/%{name}-%{version}.tar.xz
 
 BuildRequires: gnome-common
 BuildRequires: intltool
@@ -28,31 +28,30 @@ BuildRequires: pkgconfig(libxml-2.0)
 Shared library used by totem.
 
 %package i18n
-Summary: Playlist parser library from the Totem Movie Player
-Group: System/Internationalization
+Summary:	Playlist parser library from the Totem Movie Player
+Group:		System/Internationalization
 
 %description i18n
 This package contains the translations for %{name}.
 
 %package -n %{libname}
-Summary: Playlist parser library from the Totem Movie Player
-Group: System/Libraries
-Suggests: %{name}-i18n >= %{version}-%{release}
+Summary:	Playlist parser library from the Totem Movie Player
+Group:		System/Libraries
+Suggests:	%{name}-i18n >= %{version}-%{release}
 
 %description -n %{libname}
 Shared library used by totem.
 
 %package -n %{libmini}
-Summary: Playlist parser library from the Totem Movie Player
-Group: System/Libraries
+Summary:	Playlist parser library from the Totem Movie Player
+Group:		System/Libraries
 
 %description -n %{libmini}
 Shared library used by totem - minimal version.
 
 %package -n %{girname}
-Summary:    GObject Introspection interface description for %{name}
-Group:      System/Libraries
-Requires:   %{libname} = %{version}-%{release}
+Summary:	GObject Introspection interface description for %{name}
+Group:		System/Libraries
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
@@ -63,6 +62,7 @@ Group:		Development/GNOME and GTK+
 Provides:	totem-plparser-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{libmini} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
 Conflicts: 	%{_lib}totem-plparser0-devel
 Obsoletes:	%mklibname -d totem-plparser 7
 

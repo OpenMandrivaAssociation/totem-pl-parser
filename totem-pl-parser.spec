@@ -1,8 +1,8 @@
 %define major 17
-%define gir_major 1.0
+%define girmajor 1.0
 %define libname %mklibname totem-plparser %{major}
 %define libmini %mklibname totem-plparser-mini %{major}
-%define girname %mklibname totem-plparser-gir %{gir_major}
+%define girname %mklibname totem-plparser-gir %{girmajor}
 %define develname %mklibname -d totem-plparser
 
 Summary:	Playlist parser library from the Totem Movie Player
@@ -12,7 +12,7 @@ Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.hadess.net/totem.php3
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/3.4/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/%{name}-%{version}.tar.xz
 
 BuildRequires: gnome-common
 BuildRequires: intltool
@@ -80,7 +80,6 @@ Development libraries, include files for totem playlist parser
 %make LIBS='-lgcrypt -lgmodule-2.0'
 
 %install
-rm -rf %{buildroot} %{name}.lang
 %makeinstall_std
 find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %find_lang %{name}
@@ -95,13 +94,13 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %{_libdir}/libtotem-plparser-mini.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/TotemPlParser-%{gir_major}.typelib
+%{_libdir}/girepository-1.0/TotemPlParser-%{girmajor}.typelib
 
 %files -n %{develname}
 %doc ChangeLog AUTHORS
 %doc %{_datadir}/gtk-doc/html/*
 %{_libdir}/*.so
-%{_datadir}/gir-1.0/TotemPlParser-%{gir_major}.gir
+%{_datadir}/gir-1.0/TotemPlParser-%{girmajor}.gir
 %{_libdir}/pkgconfig/*
 %{_includedir}/%{name}
 

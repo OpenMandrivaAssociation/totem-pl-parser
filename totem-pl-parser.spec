@@ -23,6 +23,7 @@ BuildRequires:	pkgconfig(libarchive)
 BuildRequires:	pkgconfig(libquvi)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libgcrypt)
 
 %description
 Shared library used by totem.

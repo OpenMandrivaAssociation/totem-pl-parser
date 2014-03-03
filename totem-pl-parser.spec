@@ -7,8 +7,8 @@
 
 Summary:	Playlist parser library from the Totem Movie Player
 Name:		totem-pl-parser
-Version:	3.4.3
-Release:	3
+Version:	3.4.4
+Release:	5
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.hadess.net/totem.php3
@@ -23,6 +23,7 @@ BuildRequires:	pkgconfig(libarchive)
 BuildRequires:	pkgconfig(libquvi)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libgcrypt)
 
 %description
 Shared library used by totem.

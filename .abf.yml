@@ -1,4 +1,5 @@
 removed_sources:
   totem-pl-parser-3.4.3.tar.xz: 167adb4657684fc971a1105ce6e823e0ea0931b7
-sources:
   totem-pl-parser-3.4.4.tar.xz: 02914f2ad73c163d3391c5cadc9de5bbb34bb7d6
+sources:
+  totem-pl-parser-3.10.1.tar.xz: c351ad8b6cf69059f0426df0e79040393bc7f6ea

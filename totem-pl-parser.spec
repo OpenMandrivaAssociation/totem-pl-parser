@@ -20,7 +20,7 @@ BuildRequires:	pkgconfig(gmime-2.6)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk-doc)
 BuildRequires:	pkgconfig(libarchive)
-BuildRequires:	quvi-devel
+BuildRequires:	pkgconfig(libquvi-0.9)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libgcrypt)

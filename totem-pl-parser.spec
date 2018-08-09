@@ -101,7 +101,7 @@ Development libraries, include files for totem playlist parser
 %{_libdir}/girepository-1.0/TotemPlParser-%{girmajor}.typelib
 
 %files -n %{develname}
-%doc ChangeLog AUTHORS
+%doc NEWS AUTHORS
 %doc %{_datadir}/gtk-doc/html/*
 %{_libdir}/*.so
 %{_datadir}/gir-1.0/TotemPlParser-%{girmajor}.gir

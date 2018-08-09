@@ -24,6 +24,7 @@ BuildRequires:	pkgconfig(libquvi-0.9)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libgcrypt)
+BuildRequires:	meson
 
 %description
 Shared library used by totem.
@@ -75,12 +76,12 @@ Development libraries, include files for totem playlist parser
 %apply_patches
 
 %build
-%configure
-
-%make LIBS='-lgcrypt -lgmodule-2.0'
+%meson \
+	-Denable-gtk-doc=true
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
 
 %find_lang %{name}
 

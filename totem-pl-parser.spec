@@ -7,8 +7,8 @@
 
 Summary:	Playlist parser library from the Totem Movie Player
 Name:		totem-pl-parser
-Version:	3.10.6
-Release:	4
+Version:	3.26.1
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.hadess.net/totem.php3
@@ -24,6 +24,7 @@ BuildRequires:	pkgconfig(libquvi-0.9)
 BuildRequires:	pkgconfig(libsoup-2.4)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libgcrypt)
+BuildRequires:	meson
 
 %description
 Shared library used by totem.
@@ -75,12 +76,12 @@ Development libraries, include files for totem playlist parser
 %apply_patches
 
 %build
-%configure
-
-%make LIBS='-lgcrypt -lgmodule-2.0'
+%meson \
+	-Denable-gtk-doc=true
+%meson_build
 
 %install
-%makeinstall_std
+%meson_install
 
 %find_lang %{name}
 
@@ -100,7 +101,7 @@ Development libraries, include files for totem playlist parser
 %{_libdir}/girepository-1.0/TotemPlParser-%{girmajor}.typelib
 
 %files -n %{develname}
-%doc ChangeLog AUTHORS
+%doc NEWS AUTHORS
 %doc %{_datadir}/gtk-doc/html/*
 %{_libdir}/*.so
 %{_datadir}/gir-1.0/TotemPlParser-%{girmajor}.gir

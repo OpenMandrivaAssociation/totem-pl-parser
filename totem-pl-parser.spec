@@ -8,7 +8,7 @@
 Summary:	Playlist parser library from the Totem Movie Player
 Name:		totem-pl-parser
 Version:	3.26.1
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.hadess.net/totem.php3
@@ -16,7 +16,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/3.10/%{name}-%{v
 
 BuildRequires:	gnome-common
 BuildRequires:	intltool
-BuildRequires:	pkgconfig(gmime-2.6)
+BuildRequires:	pkgconfig(gmime-3.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk-doc)
 BuildRequires:	pkgconfig(libarchive)

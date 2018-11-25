@@ -2,7 +2,8 @@ removed_sources:
   totem-pl-parser-3.10.1.tar.xz: c351ad8b6cf69059f0426df0e79040393bc7f6ea
   totem-pl-parser-3.10.3.tar.xz: 22ae2ee63c25faf81ffd65074306a3ceeeab7aae
   totem-pl-parser-3.10.4.tar.xz: 8ea8328e4c3d042b47fd3ccbfb224a34057f125d
+  totem-pl-parser-3.10.6.tar.xz: 969fc90695e493d73c3b1efb1e24fc1b1c3e8b91
   totem-pl-parser-3.4.3.tar.xz: 167adb4657684fc971a1105ce6e823e0ea0931b7
   totem-pl-parser-3.4.4.tar.xz: 02914f2ad73c163d3391c5cadc9de5bbb34bb7d6
 sources:
-  totem-pl-parser-3.10.6.tar.xz: 969fc90695e493d73c3b1efb1e24fc1b1c3e8b91
+  totem-pl-parser-3.10.8.tar.xz: 375cdd83611dfd5a11c90d0f79b958e593d1336b

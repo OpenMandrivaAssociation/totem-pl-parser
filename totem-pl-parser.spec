@@ -7,7 +7,7 @@
 
 Summary:	Playlist parser library from the Totem Movie Player
 Name:		totem-pl-parser
-Version:	3.26.3
+Version:	3.26.4
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries

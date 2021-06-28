@@ -89,7 +89,7 @@ Development libraries, include files for totem playlist parser
 %{_libexecdir}/totem-pl-parser/
 
 %files i18n -f %{name}.lang
-%doc README NEWS
+%doc README.md NEWS
 
 %files -n %{libname}
 %{_libdir}/libtotem-plparser.so.%{major}*

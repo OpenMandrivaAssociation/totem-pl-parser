@@ -75,6 +75,7 @@ Development libraries, include files for totem playlist parser
 %autosetup -p1
 
 %build
+export CFLAGS="%{optflags} -fuse-ld=bfd"
 %meson \
 	-Denable-gtk-doc=true
 %meson_build
